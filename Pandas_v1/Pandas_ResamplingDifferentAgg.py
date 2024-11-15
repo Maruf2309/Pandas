@@ -1,0 +1,15 @@
+# Example 44: Pandas - Resampling with Different Aggregations
+import pandas as pd
+
+# Creating a time series DataFrame
+date_range = pd.date_range(start='2024-11-01', periods=30, freq='D')
+
+data = ({'Sales': range(30)})
+
+df = pd.DataFrame(data, index=date_range)
+
+# Resampling with different aggregations
+resampled_df = df.resample('W').agg({'Sales':['sum','mean','max']})
+
+print('Original DataFrame:\n', df)
+print('Resampled DataFrame with Different Aggregations:\n', resampled_df)
